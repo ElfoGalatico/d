@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,11 @@ import {ROUTES} from './app.routes'
 import { RouterModule } from '@angular/router';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { RestauranteComponent } from './restaurantes/restaurante/restaurante.component';
+import { RestaurantesService } from './restaurantes/restaurantes.service';
+import { DetalhesRestauranteComponent } from './detalhes-restaurante/detalhes-restaurante.component';
+import { MenuComponent } from './detalhes-restaurante/menu/menu.component';
+import { CarrinhoComponent } from './detalhes-restaurante/carrinho/carrinho.component';
+import { ItemMenuComponent } from './detalhes-restaurante/item-menu/item-menu.component';
 
 @NgModule({
   declarations: [
@@ -19,15 +25,21 @@ import { RestauranteComponent } from './restaurantes/restaurante/restaurante.com
     HomeComponent,
     SobreComponent,
     RestaurantesComponent,
-    RestauranteComponent
+    RestauranteComponent,
+    DetalhesRestauranteComponent,
+    MenuComponent,
+    CarrinhoComponent,
+    ItemMenuComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    RestaurantesService
   ],
   bootstrap: [AppComponent]
 })

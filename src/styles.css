@@ -278,3 +278,8 @@ body {
 .last-search{
   margin-right: 1rem;
 }
+
+.white-box {
+  color: #000000;
+  margin-bottom: 15px; /* Adiciona margem inferior para separar as imagens do texto */
+}

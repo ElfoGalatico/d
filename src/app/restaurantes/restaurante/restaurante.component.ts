@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { RestaurantesComponent } from '../restaurantes.component';
-import { Restaurante } from './restaurante.model';
+import { Component, OnInit, Input, input } from '@angular/core';
+import { Restaurante } from './restaurante';
+
+
 @Component({
   selector: 'mt-restaurante',
   templateUrl: './restaurante.component.html',
@@ -8,8 +9,7 @@ import { Restaurante } from './restaurante.model';
 })
 export class RestauranteComponent implements OnInit {
 
-  @Input() restaurante: Restaurante
-
+ @Input() restaurante?: Restaurante
 
 
   constructor() {}
