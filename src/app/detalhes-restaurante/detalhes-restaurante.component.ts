@@ -20,3 +20,4 @@ export class DetalhesRestauranteComponent implements OnInit{
   }
 
 }
+

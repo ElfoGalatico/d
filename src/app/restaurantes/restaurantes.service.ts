@@ -21,8 +21,10 @@ export class RestaurantesService {
   }
 
   restaurantesById(id: string): Observable<Restaurante> {
-    return this.http.get<Restaurante>(`${MEAT_API}/restaurants?/${id}`)
+    return this.http.get<Restaurante>(`${MEAT_API}/restaurants/${id}`)
   }
+
+
 
 }
 //O operador .pipe() é usado para compor operadores no RxJS. Ele permite que você encadeie uma série de operadores para transformar, filtrar, combinar ou manipular os dados emitidos por um Observable.
