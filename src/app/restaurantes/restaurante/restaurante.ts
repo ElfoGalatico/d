@@ -7,5 +7,4 @@ export interface Restaurante{
   imagePath: string
   about: string
   hours: string
-
  }
