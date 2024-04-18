@@ -25,6 +25,9 @@ import { ReviewsComponent } from './detalhes-restaurante/reviews/reviews.compone
 import { ReviewComponent } from './detalhes-restaurante/reviews/review/review.component';
 import { ReviewsService } from './detalhes-restaurante/reviews/reviews.service';
 import { PedidoComponent } from './pedido/pedido.component';
+import { InputComponent } from './shared/input/input.component';
+import { RadioComponent } from './shared/radio/radio.component';
+import { RadioTsPipe } from './shared/radio/radio.ts.pipe';
 
 
 registerLocaleData(localePt);
@@ -42,7 +45,10 @@ registerLocaleData(localePt);
     ItemMenuComponent,
     ReviewsComponent,
     ReviewComponent,
-    PedidoComponent
+    PedidoComponent,
+    InputComponent,
+    RadioComponent,
+    RadioTsPipe
   ],
   imports: [
     BrowserModule,

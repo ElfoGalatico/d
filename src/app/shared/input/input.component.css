@@ -1,15 +1,16 @@
 .mensagem-erro{
   color: red;
+  border-color: red;
 }
 
 .mensagem-okay{
   color: rgb(0, 255, 0);
+  border-color: #2ecc71;
 }
 
 .has-success .form-control {
-  border-color: rgb(0, 255, 0);
+  border-color: #2ecc71;
 }
-
 .has-error .form-control{
   border-color: red;
 }
