@@ -28,6 +28,9 @@ import { PedidoComponent } from './pedido/pedido.component';
 import { InputComponent } from './shared/input/input.component';
 import { RadioComponent } from './shared/radio/radio.component';
 import { RadioTsPipe } from './shared/radio/radio.ts.pipe';
+import { ItensPedidoComponent } from './pedido/itens-pedido/itens-pedido.component';
+import { PedidoService } from './pedido/pedido.service';
+import { FreteComponent } from './pedido/frete/frete.component';
 
 
 registerLocaleData(localePt);
@@ -48,7 +51,9 @@ registerLocaleData(localePt);
     PedidoComponent,
     InputComponent,
     RadioComponent,
-    RadioTsPipe
+    RadioTsPipe,
+    ItensPedidoComponent,
+    FreteComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +66,7 @@ registerLocaleData(localePt);
     provideClientHydration(),
     RestaurantesService,
     ReviewsService,
+    PedidoService,
     {provide: LOCALE_ID, useValue: 'pt-BR'}
   ],
   bootstrap: [AppComponent]

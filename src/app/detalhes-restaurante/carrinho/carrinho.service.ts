@@ -21,10 +21,20 @@ export class CarrinhoService {
     }
   }
 
+  addQntd(item: CarrinhoItem){
+    item.quantidade++
+  }
+
+  subtrairQntd(item: CarrinhoItem){
+    item.quantidade--
+    if (item.quantidade === 0){
+      this.removerItem(item)
+    }
+  }
+
   removerItem(item:any){
     this.items.splice(this.items.indexOf(item),1)
   }
-
   total(): number{
     return this.items
     .map(item => item.value())

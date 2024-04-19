@@ -44,54 +44,15 @@
           <div class="row">
             <div class="col-xs-12">
               <p class="lead">Itens do Pedido:</p>
+
             </div>
-            <div class="col-xs-12 table-responsive">
 
-              <table class="table table-striped">
-                <thead>
-                <tr>
-                  <th class="text-center">Quantidade</th>
-                  <th>Item</th>
-                  <th>Descrição</th>
-                  <th class="text-right">Subtotal</th>
-                  <th class="text-right"></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td class="text-center">
-                    <a class="btn btn-sm"><i class="fa fa-minus"></i></a>
-                    1
-                    <a class="btn btn-sm"><i class="fa fa-plus"></i></a>
-                  </td>
-                  <td>Cup Cake</td>
-
-                  <td>Recheado com doce de leite</td>
-                  <td class="text-right">R$ 10,00</td>
-                  <td class="text-right">
-                    <a class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="text-center">
-                    <a class="btn btn-sm"><i class="fa fa-minus"></i></a>
-                    1
-                    <a class="btn btn-sm"><i class="fa fa-plus"></i></a>
-                  </td>
-                  <td>Croissant</td>
-
-                  <td>Recheado com presunto e queijo</td>
-                  <td class="text-right">R$ 10,00</td>
-                  <td class="text-right">
-                    <a class="btn btn-sm danger "><i class="fa fa-remove"></i></a>
-                  </td>
-                </tr>
-
-                </tbody>
-              </table>
-            </div>
-            <!-- /.col -->
           </div>
+
+          <mt-itens-pedido [itens]="carrinhoItem()"
+          (addQntd)="addqntd($event)"
+          (subtrairQntd)="subtrairQntd($event)"
+          (removerItem)="removerItem($event)" ></mt-itens-pedido>
           <!-- /.row -->
 
           <div class="row">
@@ -100,53 +61,7 @@
               <p class="lead">Formas de Pagamento:</p>
 
                 <div class="form-group">
-                   <div>
-                     <label>
-                      <div class="form-group">
-                        <label style="display: flex; align-items: center;">
-                          <span style="margin-right: 5px;">
-                              <div class="iradio_flat-red checked" aria-checked="false" aria-disabled="false">
-                                  <input type="radio" name="r3" class="flat-red" checked="" style="opacity: 1;">
-                              </div>
-                          </span>
-                          <span>Dinheiro</span>
-                      </label>
-                       </div>
-
-                     </label>
-                   </div>
-
-                   <div>
-                    <label>
-                     <div class="form-group">
-                       <label style="display: flex; align-items: center;">
-                         <span style="margin-right: 5px;">
-                             <div class="iradio_flat-red checked" aria-checked="false" aria-disabled="false">
-                                 <input type="radio" name="r3" class="flat-red" checked="" style="opacity: 1;">
-                             </div>
-                         </span>
-                         <span>Cartão de crédito</span>
-                     </label>
-                      </div>
-
-                    </label>
-                  </div>
-
-                  <div>
-                    <label>
-                     <div class="form-group">
-                       <label style="display: flex; align-items: center;">
-                         <span style="margin-right: 5px;">
-                             <div class="iradio_flat-red checked" aria-checked="false" aria-disabled="false">
-                                 <input type="radio" name="r3" class="flat-red" checked="" style="opacity: 1;">
-                             </div>
-                         </span>
-                         <span>Cartão de Débito</span>
-                     </label>
-                      </div>
-
-                    </label>
-                  </div>
+                  <mt-radio [options]="formasPagamento" name="formaPagamento" ngModel required></mt-radio>
 
                 </div>
 
@@ -155,28 +70,16 @@
             <div class="col-sm-6 col-xs-12">
               <p class="lead">Frete e Total:</p>
 
-              <div class="table-responsive">
-                <table class="table">
-                  <tbody><tr>
-                    <th style="width:50%">Itens:</th>
-                    <td class="text-right">R$ 20,00</td>
-                  </tr>
-                  <tr>
-                    <th>Frete:</th>
-                    <td class="text-right">R$ 8,00</td>
-                  </tr>
-                  <tr>
-                    <th>Total:</th>
-                    <td class="text-right">R$ 28,00</td>
-                  </tr>
-                </tbody></table>
+              <mt-frete
+              [delivery]="delivery"
+              [valorItem]="valorItem()"></mt-frete>
               </div>
-              <a href="order-summary.html" class="btn btn-success pull-right" [class.disabled]="!form.valid">
+              <a (click)="checarPedido(form.value)" class="btn btn-success pull-right" [class.disabled]="!form.valid || carrinhoItem().length === 0">
                 <i class="fa fa-credit-card"></i> Concluir Pedido
             </a>
             </div>
             <!-- /.col -->
-          </div>
+
 
         </form>
 

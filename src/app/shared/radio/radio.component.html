@@ -1,15 +1,6 @@
-<div>
+<div *ngFor="let option of options">
   <label>
-   <div class="form-group">
-     <label style="display: flex; align-items: center;">
-       <span style="margin-right: 5px;">
-           <div class="iradio_flat-red checked" aria-checked="false" aria-disabled="false">
-               <input type="radio" name="r3" class="flat-red" checked="" style="opacity: 1;">
-           </div>
-       </span>
-       <span>Dinheiro</span>
-   </label>
-    </div>
-
+    <input type="radio" name="options" [value]="option.valor" (click)="setValor(option.valor)" [checked]="option.valor === valor">
+    {{ option.label }}
   </label>
 </div>
