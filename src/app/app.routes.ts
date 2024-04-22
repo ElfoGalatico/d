@@ -6,6 +6,7 @@ import { DetalhesRestauranteComponent } from './detalhes-restaurante/detalhes-re
 import { MenuComponent } from './detalhes-restaurante/menu/menu.component';
 import { ReviewsComponent } from './detalhes-restaurante/reviews/reviews.component';
 import { PedidoComponent } from './pedido/pedido.component';
+import { PedidoConcluidoComponent } from './pedido/pedido-concluido/pedido-concluido.component';
 
 export const ROUTES: Routes = [
   {path: '', component: HomeComponent},
@@ -17,6 +18,7 @@ export const ROUTES: Routes = [
       {path: 'menu',component: MenuComponent},
       {path: 'reviews',component: ReviewsComponent}
     ]},
-  {path: 'pedido', component: PedidoComponent}
+  {path: 'pedido', component: PedidoComponent},
+  {path: 'pedido-concluido', component: PedidoConcluidoComponent}
 
 ]

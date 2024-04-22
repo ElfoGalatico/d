@@ -1,8 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 
 
+:host {
+  display: block;
+  height: 100vh; /* Isso fará com que o componente raiz ocupe toda a altura da viewport */
+  width: 100vw; /* Isso fará com que o componente raiz ocupe toda a largura da viewport */
+}
+
+
 body {
   color: #555;
+  width: 100%;
+  height: 100%;
 }
 
 .box-header {

@@ -10,7 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { SobreComponent } from './sobre/sobre.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {ROUTES} from './app.routes'
 import { RouterModule } from '@angular/router';
@@ -31,6 +31,8 @@ import { RadioTsPipe } from './shared/radio/radio.ts.pipe';
 import { ItensPedidoComponent } from './pedido/itens-pedido/itens-pedido.component';
 import { PedidoService } from './pedido/pedido.service';
 import { FreteComponent } from './pedido/frete/frete.component';
+import { PedidoConcluidoComponent } from './pedido/pedido-concluido/pedido-concluido.component';
+import { RatingComponent } from './shared/rating/rating.component';
 
 
 registerLocaleData(localePt);
@@ -53,14 +55,17 @@ registerLocaleData(localePt);
     RadioComponent,
     RadioTsPipe,
     ItensPedidoComponent,
-    FreteComponent
+    FreteComponent,
+    PedidoConcluidoComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot(ROUTES),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     provideClientHydration(),

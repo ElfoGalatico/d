@@ -1,6 +1,6 @@
 import { MEAT_API } from './../app.api';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, LOCALE_ID } from '@angular/core';
 import { CarrinhoService } from '../detalhes-restaurante/carrinho/carrinho.service';
 import { CarrinhoItem } from '../detalhes-restaurante/carrinho/carrinho';
 import { Observable } from 'rxjs';
@@ -43,11 +43,11 @@ export class PedidoService {
     this.carrinhoService.clear()
   }
 
-  checarPedido(pedido : Pedido): Observable<string> {
+  checarPedido(pedido : Pedido): Observable<any> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post<string>(`${MEAT_API}/orders`, JSON.stringify(pedido), { headers: headers })
+    return this.http.post<any>(`${MEAT_API}/orders`, JSON.stringify(pedido), { headers: headers })
       .pipe(
-        map(response => response) // ou response => response.json() se você precisar desserializar o JSON
-      );
+        map(response => response)).pipe(map(Pedido => Pedido.id))// ou response => response.json() se você precisar desserializar o JSON
+
   }
 }

@@ -1,0 +1,6 @@
+<i *ngFor="let estrela of estrelas"
+[class]="(estrela <= avaliacao) ? 'fa fa-star' : 'fa-regular fa-star'"
+(click) = "avaliar(estrela)"
+(mouseenter) = "setPreAvaliacao(estrela)"
+(mouseleave) = "limparPreAvaliacao()"
+></i>
