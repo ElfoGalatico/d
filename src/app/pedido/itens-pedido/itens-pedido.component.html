@@ -14,6 +14,7 @@
       <th class="text-center">Quantidade</th>
       <th>Item</th>
       <th>Descrição</th>
+      <th>Valor Unit.</th>
       <th class="text-right">Subtotal</th>
       <th class="text-right"></th>
     </tr>
@@ -28,6 +29,7 @@
       <td>{{item.menuItem.name}}</td>
 
       <td>{{item.menuItem.description}}</td>
+      <td>{{item.menuItem.price | currency: 'BRL': 'symbol'}}</td>
       <td class="text-right">{{item.value() | currency: 'BRL': 'symbol'}}</td>
       <td class="text-right">
         <a (click)="EmitRemoverItem(item)" class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
