@@ -1,0 +1,5 @@
+.box {
+  width: 100%; /* Defina a largura desejada */
+  max-width: 350px; /* Defina a largura máxima desejada */
+  margin-bottom: 20px; /* Espaçamento inferior entre as caixas */
+}
