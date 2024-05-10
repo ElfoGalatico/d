@@ -2,14 +2,12 @@
   color: red;
 }
 
-.mensagem-okay{
-  color: rgb(0, 255, 0);
-}
+
 
 .has-success .form-control {
   border-color: rgb(0, 255, 0);
 }
 
-.has-error .form-control{
-  border-color: red;
+.has-error .form-control {
+  border-color:  red;
 }

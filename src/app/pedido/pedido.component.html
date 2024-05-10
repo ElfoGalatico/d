@@ -21,23 +21,36 @@
               <p class="lead">Seus Dados:</p>
             </div>
             <div class="col-xs-12 col-sm-3">
-              <span class="help-block mensagem-erro pull-right" *ngIf="pedidoForm.hasError('emailNaoBate')"><i class="fa fa-remove"></i> Email-s não conferem</span>
+              <span class="help-block mensagem-erro pull-right" *ngIf="pedidoForm.hasError('emailNaoBate')"  ><i class="fa fa-remove"></i> Email-s não conferem</span>
             </div>
             <div class="col-sm-6 col-xs-12">
-              <mt-input-container mensagemErro="Minino 3 caracteres" label = "Endereço">
-                <input class = "form-control has-error" formControlName="nome"  placeholder="Nome"  autocomplete="off">
+              <mt-input-container
+              [ngClass]="{'has-error': nome?.invalid && (nome?.touched || nome?.dirty)}"
+              [ngClass]="{'has-success': !nome?.invalid && (nome?.touched || nome?.dirty)}"
+              mensagemErro="Minino 3 caracteres" label = "Nome">
+                <input class = "form-control" formControlName="nome"  placeholder="Nome"  autocomplete="off">
               </mt-input-container>
             </div>
 
             <div class="col-sm-3 col-xs-6">
-              <mt-input-container mensagemErro="E-mail inválido" label="email">
+              <mt-input-container
+              [ngClass]="{
+                'has-error': (pedidoForm.hasError('emailNaoBate') && (email?.touched || email?.dirty)) || email?.invalid && (email?.touched || email?.dirty),
+                'has-success': !pedidoForm.hasError('emailNaoBate') && !(email?.invalid) && (email?.touched || email?.dirty)
+            }"
+              mensagemErro="E-mail inválido" label="email">
                <input class="form-control" formControlName = "email"   placeholder="Email" autocomplete = "off">
               </mt-input-container>
              </div>
 
              <div class="col-sm-3 col-xs-6 ">
-              <mt-input-container mensagemErro="E-mail inválido" label="email">
-               <input class="form-control" formControlName = "emailConfirmado" placeholder="Confirme o Email"   autocomplete = "off">
+              <mt-input-container
+              [ngClass]="{
+                'has-error': (pedidoForm.hasError('emailNaoBate') && (emailConfirmado?.touched || emailConfirmado?.dirty)) || emailConfirmado?.invalid && (emailConfirmado?.dirty || emailConfirmado?.touched),
+                'has-success': !pedidoForm.hasError('emailNaoBate') && !(emailConfirmado?.invalid) && (emailConfirmado?.touched || emailConfirmado?.dirty)
+            }"
+              mensagemErro="E-mail inválido" label="email">
+               <input class="form-control" formControlName = "emailConfirmado" placeholder="Confirme o Email" autocomplete = "off" >
               </mt-input-container>
              </div>
           </div>
@@ -47,17 +60,25 @@
               <p class="lead">Endereço de Entrega:</p>
             </div>
             <div class="col-sm-6 col-xs-12">
-              <mt-input-container   mensagemErro="Campo obrigatório e com min de 5 caracteres" label = "Endereço">
+              <mt-input-container
+              [ngClass]="{'has-error': endereco?.invalid && (endereco?.touched || endereco?.dirty)}"
+              [ngClass]="{'has-success': !endereco?.invalid && (endereco?.touched || endereco?.dirty)}"
+              mensagemErro="Campo obrigatório e com min de 5 caracteres" label = "Endereço">
                 <input class = "form-control" formControlName="endereco"  placeholder="Endereço"  autocomplete="off">
               </mt-input-container>
             </div>
             <div class="col-sm-3 col-xs-6">
-             <mt-input-container mensagemErro="Campo obrigatório(somente números)" label="Número">
+             <mt-input-container
+             [ngClass]="{'has-error': numero?.invalid && (numero?.touched || numero?.dirty)}"
+             [ngClass]="{'has-success': !numero?.invalid && (numero?.touched || numero?.dirty)}"
+             mensagemErro="Campo obrigatório(somente números)" label="Número">
               <input class="form-control" formControlName = "numero"  placeholder="Número"  autocomplete = "off">
              </mt-input-container>
             </div>
             <div class="col-sm-3 col-xs-6">
-              <mt-input-container mensagemErro="campo obrigatório e com min de 5 caracteres" label="Complemento">
+              <mt-input-container
+              [ngClass]="{'has-success': !complemento?.invalid && (complemento?.touched || complemento?.dirty)}"
+              label="Complemento">
                 <input class="form-control"  formControlName="complemento"  placeholder="Complemento" autocomplete="off">
               </mt-input-container>
             </div>

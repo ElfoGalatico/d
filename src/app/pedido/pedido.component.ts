@@ -42,20 +42,56 @@ export class PedidoComponent implements OnInit{
         numero: ['', [Validators.required, Validators.pattern(this.numeroPattern)]],
         complemento: [''],
         formaPagamento: ['', [Validators.required]]
-      }, { validator: PedidoComponent.validarEmail });
+      }, { validators: PedidoComponent.validarEmails });
     }
 
+    get nome(){
+      return this.pedidoForm.get('nome')
+    }
 
-    static validarEmail(group: AbstractControl): { [key: string]: boolean } | null {
+    get email(){
+      return this.pedidoForm.get('email')
+    }
+
+    get emailConfirmado(){
+      return this.pedidoForm.get('emailConfirmado')
+    }
+
+    get endereco(){
+      return this.pedidoForm.get('endereco')
+    }
+
+    get numero(){
+      return this.pedidoForm.get('numero')
+    }
+
+    get complemento(){
+      return this.pedidoForm.get('complemento')
+    }
+
+    static validarEmails(group: AbstractControl): { [key: string]: boolean } | null {
       const email = group.get('email');
       const emailConfirmado = group.get('emailConfirmado');
 
-      if (email && emailConfirmado && email.value !== emailConfirmado.value) {
-        return { emailNaoBate: true };
+      if (email && emailConfirmado) {
+          // Verifica se o campo de e-mail foi preenchido e é válido
+          if (email.value && email.invalid) {
+              return { emailInvalido: true };
+          }
+          // Verifica se o campo de e-mail confirmado foi preenchido quando o e-mail é válido
+          if (emailConfirmado.value && !email.value) {
+              return { emailNaoPreenchido: true };
+          }
+          // Verifica se os valores dos campos de e-mail e e-mail confirmado são diferentes
+          if (email.value !== emailConfirmado.value) {
+              return { emailNaoBate: true };
+          }
       }
 
       return null;
   }
+
+
 
 
   valorItem(): number{
